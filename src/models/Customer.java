@@ -5,12 +5,16 @@ public class Customer {
     private String name;
     private double balance;
     private String pin;
+    private int pinAttempts;
+    private boolean isCaptured;
 
     public Customer(String accountNo, String name, double balance, String pin) {
         this.accountNo = accountNo;
         this.name = name;
         this.balance = balance;
         this.pin = pin;
+        this.pinAttempts = 0;
+        this.isCaptured = false;
     }
 
     public String getAccountNo() {
@@ -39,6 +43,22 @@ public class Customer {
 
     public void setPin(String pin) {
         this.pin = pin;
+    }
+
+    public int getPinAttempts() {
+        return pinAttempts;
+    }
+
+    public void setPinAttempts(int pinAttempts) {
+        this.pinAttempts = pinAttempts;
+    }
+
+    public boolean isCaptured() {
+        return isCaptured;
+    }
+
+    public void setCaptured(boolean captured) {
+        isCaptured = captured;
     }
 
     @Override
