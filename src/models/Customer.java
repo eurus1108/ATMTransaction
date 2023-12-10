@@ -13,7 +13,7 @@ public class Customer {
         this.name = name;
         this.balance = balance;
         this.pin = pin;
-        this.pinAttempts = 0;
+        this.pinAttempts = 3;
         this.isCaptured = false;
     }
 
