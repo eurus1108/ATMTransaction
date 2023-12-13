@@ -6,7 +6,7 @@ import exceptions.PinMismatchException;
 import exceptions.UserNotFoundException;
 import models.Customer;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class Auth {
     public static Customer login(String accountNo, String pin) {
