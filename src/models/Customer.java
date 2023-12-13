@@ -1,14 +1,16 @@
 package models;
 
+import java.math.BigDecimal;
+
 public class Customer {
     private String accountNo;
     private String name;
-    private double balance;
+    private BigDecimal balance;
     private String pin;
     private int pinAttempts;
     private boolean isCaptured;
 
-    public Customer(String accountNo, String name, double balance, String pin) {
+    public Customer(String accountNo, String name, BigDecimal balance, String pin) {
         this.accountNo = accountNo;
         this.name = name;
         this.balance = balance;
@@ -29,11 +31,11 @@ public class Customer {
         this.name = name;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 

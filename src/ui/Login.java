@@ -1,43 +1,44 @@
 package ui;
 
-import controllers.accounts.Auth;
-import models.Customer;
-import models.Session;
+import javax.swing.*;
+import java.awt.*;
 
-public class Login extends BaseUi {
-    public void run() {
-        BaseUi.printHeader();
-        System.out.print("Enter your account no.: ");
-        String accountNo = scanner.nextLine();
+public class Login extends BaseFrame {
+    public Login() {
+        super("Login");
+    }
 
-        Auth.login(accountNo);
-        Customer user = Session.getUser();
+    @Override
+    protected void addGuiComponents() {
+        JLabel headerLabel = new JLabel(header);
+        headerLabel.setBounds(0, 20, getWidth() - 10, 40);
+        headerLabel.setFont(new Font("Dialog", Font.PLAIN, 16));
+        headerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        add(headerLabel);
 
-        if (user == null) {
-            System.out.println(RED + "Error: No account found.\n" + RESET);
-            run();
-            return;
-        }
+        JLabel accountNoLabel = new JLabel("Account: ");
+        accountNoLabel.setBounds(20, 120, getWidth() - 30, 24);
+        accountNoLabel.setFont(new Font("Dialog", Font.PLAIN, 20));
+        add(accountNoLabel);
 
-        while (!user.isCaptured()) {
-            System.out.print("Enter you pin: ");
-            String pin = scanner.nextLine();
+        JTextField accountNoField = new JTextField();
+        accountNoField.setBounds(20, 160, getWidth() - 50, 40);
+        accountNoField.setFont(new Font("Dialog", Font.PLAIN, 28));
+        add(accountNoField);
 
-            if (user.getPin().equals(pin)) {
-                break;
-            }
+        JLabel pinLabel = new JLabel("Pin: ");
+        pinLabel.setBounds(20, 240, getWidth() - 50, 24);
+        pinLabel.setFont(new Font("Dialog", Font.PLAIN, 20));
+        add(pinLabel);
 
-            user.setPinAttempts(user.getPinAttempts() - 1);
+        JPasswordField pinField = new JPasswordField();
+        pinField.setBounds(20, 280, getWidth() - 50, 40);
+        pinField.setFont(new Font("Dialog", Font.PLAIN, 28));
+        add(pinField);
 
-            if (user.getPinAttempts() == 0) {
-                user.setCaptured(true);
-            }
-        }
-
-        if (user.isCaptured()) {
-            System.out.println(RED + "CAPTURED CARD.... PLEASE CALL 143-44\n" + RESET);
-            Session.setUser(null);
-            run();
-        }
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(20, 460, getWidth() - 50, 40);
+        loginButton.setFont(new Font("Dialog", Font.BOLD, 20));
+        add(loginButton);
     }
 }
