@@ -1,7 +1,12 @@
 package ui;
 
+import controllers.account.Auth;
+import models.Customer;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Login extends BaseFrame {
     public Login() {
@@ -39,6 +44,20 @@ public class Login extends BaseFrame {
         JButton loginButton = new JButton("Login");
         loginButton.setBounds(20, 460, getWidth() - 50, 40);
         loginButton.setFont(new Font("Dialog", Font.BOLD, 20));
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String accountNo = accountNoField.getText();
+                String pin = String.valueOf(pinField.getPassword());
+
+                Customer customer = Auth.login(accountNo, pin);
+
+                if (customer != null) {
+                    Login.this.dispose();
+                    new Menu(customer).setVisible(true);
+                }
+            }
+        });
         add(loginButton);
     }
 }

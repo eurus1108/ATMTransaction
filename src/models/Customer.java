@@ -1,6 +1,7 @@
 package models;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Customer {
     private String accountNo;
@@ -36,7 +37,7 @@ public class Customer {
     }
 
     public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+        this.balance = balance.setScale(2, RoundingMode.FLOOR);
     }
 
     public String getPin() {

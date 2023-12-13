@@ -5,14 +5,14 @@ import models.Customer;
 
 import java.math.BigDecimal;
 
-public class WithdrawService extends TransactionService{
+public class WithdrawService extends TransactionService {
     public WithdrawService(Customer customer, double amount) {
         super(customer, amount);
     }
 
     @Override
     public void execute() {
-        if (amount < 0) {
+        if (amount < 100) {
             throw new InsufficientAmountException("Error: Deposit amount should not be less than 100");
         }
 
