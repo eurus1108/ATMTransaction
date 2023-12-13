@@ -37,7 +37,7 @@ public class Customer {
     }
 
     public void setBalance(BigDecimal balance) {
-        this.balance = balance.setScale(2, RoundingMode.FLOOR);
+        this.balance = balance.setScale(2, RoundingMode.HALF_UP);
     }
 
     public String getPin() {

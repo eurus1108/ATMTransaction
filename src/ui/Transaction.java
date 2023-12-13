@@ -142,7 +142,5 @@ public class Transaction extends JDialog implements ActionListener {
 
             this.dispose();
         }
-
-        System.out.println(customer.toString());
     }
 }
