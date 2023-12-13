@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Customer {
-    private String accountNo;
+    private final String accountNo;
     private String name;
     private BigDecimal balance;
     private String pin;
