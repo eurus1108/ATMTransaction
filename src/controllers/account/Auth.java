@@ -29,7 +29,7 @@ public class Auth {
             }
 
             return customer;
-        } catch (UserNotFoundException | PinAttemptException | PinMismatchException  e) {
+        } catch (UserNotFoundException | PinAttemptException | PinMismatchException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Login Error", JOptionPane.ERROR_MESSAGE);
         }
 

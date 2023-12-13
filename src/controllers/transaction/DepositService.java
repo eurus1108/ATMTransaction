@@ -16,10 +16,6 @@ public class DepositService extends TransactionService {
             throw new InsufficientAmountException("Error: Deposit amount should not be less than 100");
         }
 
-        if (amount % 100 != 0) {
-            throw new InsufficientAmountException("Error: amount should be divisible by 100");
-        }
-
         customer.setBalance(customer.getBalance().add(new BigDecimal(amount)));
     }
 }
