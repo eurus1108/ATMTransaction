@@ -1,14 +1,13 @@
-import data.CustomerRepo;
-import ui.Menu;
+import ui.StartUp;
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Menu(CustomerRepo.getAllCustomer().get(0)).setVisible(true);
+                new StartUp().setVisible(true);
             }
         });
     }

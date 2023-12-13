@@ -2,7 +2,7 @@ package ui;
 
 import models.Customer;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public abstract class BaseFrame extends JFrame {
     protected Customer customer;

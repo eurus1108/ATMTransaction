@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Customer {
-    private String accountNo;
+    private final String accountNo;
     private String name;
     private BigDecimal balance;
     private String pin;
@@ -37,7 +37,7 @@ public class Customer {
     }
 
     public void setBalance(BigDecimal balance) {
-        this.balance = balance.setScale(2, RoundingMode.FLOOR);
+        this.balance = balance.setScale(2, RoundingMode.HALF_UP);
     }
 
     public String getPin() {
