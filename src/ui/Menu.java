@@ -47,6 +47,29 @@ public class Menu extends BaseFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String buttonPressed = e.getActionCommand();
 
+        Transaction transaction = new Transaction(this, customer);
+
+        if (buttonPressed.equalsIgnoreCase("Cancel")) {
+            new Login().setVisible(true);
+            this.dispose();
+            return;
+        }
+
+        if (buttonPressed.equalsIgnoreCase("Balance Inquiry")) {
+            transaction.setTitle(buttonPressed);
+            transaction.getBalance();
+            transaction.addActionButton("Exit");
+        }
+
+        if (buttonPressed.equalsIgnoreCase("Withdraw") || buttonPressed.equalsIgnoreCase("Deposit")) {
+            transaction.setTitle(buttonPressed);
+
+            transaction.enterAmount();
+            transaction.addActionButton(buttonPressed);
+        }
+
+        transaction.setVisible(true);
     }
 }
