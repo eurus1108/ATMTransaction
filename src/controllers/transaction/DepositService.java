@@ -12,7 +12,7 @@ public class DepositService extends TransactionService {
 
     @Override
     public void execute() {
-        if (amount < 0) {
+        if (amount < MIN_AMOUNT) {
             throw new InsufficientAmountException("Error: Deposit amount should not be less than 100");
         }
 
